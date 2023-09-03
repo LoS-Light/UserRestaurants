@@ -6,7 +6,6 @@
 
 -   Sign up
 -   Login by username&password or oauth2
--   Manage your restaurant list
 -   Display restaurants on multiple pages
 -   Search restaurants by name or category
 -   Order restaurants
