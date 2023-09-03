@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="/css/edit-styles.css">
+
+<header>
+    <!-- navigation -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png" width="30" height="30" class="d-inline-block align-top" alt="好。吃">
+                我的餐廳清單
+            </a>
+        </div>
+    </nav>
+
+    <div class="banner"></div>
+</header>
+
+<h1 id="title-restaurant" class="restaurant-show-title">{{editTitle}}</h1>
+<div class="container-fluid container-restaurant-edit pt-4 px-sm-5 mb-4">
+    <form class="card" method="post" action="{{action}}">
+        <div class="card-body fw-medium">
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Name:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0"><input name="rest-name" class="form-control" type="text" value="{{rest.name}}" maxlength="20" required></div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">English Name:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0"><input name="rest-name-en" class="form-control" type="text" value="{{rest.nameEn}}" maxlength="30" required></div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Category:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0">
+                    <select id="rest-category" name="rest-category" class="form-select" defaultValue="日本料理" required>
+                        <option selected value="" disabled hidden>Choose one category</option>
+                        <option value="中東料理">中東料理</option>
+                        <option value="日本料理">日本料理</option>
+                        <option value="義式餐廳">義式餐廳</option>
+                        <option value="美式">美式</option>
+                        <option value="酒吧">酒吧</option>
+                        <option value="咖啡">咖啡</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Image Url:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0">
+                    <input name="rest-image" class="form-control" type="url" placeholder="https://example.com" pattern="https://.*" value="{{rest.image}}" maxlength="2048">
+                </div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Location:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0"><input name="rest-location" class="form-control" type="text" value="{{rest.profile.location}}" maxlength="32" required></div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Phone:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0">
+                    <input name="rest-phone" class="form-control" type="tel" pattern="[0-9]{2} [0-9]{4} [0-9]{4}" placeholder="02 1234 5678" value="{{rest.profile.phone}}" required>
+                </div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Google Map Url:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0">
+                    <input id="rest-google-map" name="rest-google-map" class="form-control" type="url" placeholder="https://example.com" pattern="https://.*" value="{{rest.profile.googleMap}}"
+                        maxlength="2048" required>
+                </div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Rating:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0"><input name="rest-rating" class="form-control" type="number" min="0" max="5" step="0.1" value="{{rest.rating}}" required></div>
+            </div>
+            <div class="row mx-sm-1 mb-4">
+                <div class="col-5 col-md-4 p-0 pt-2">Description:</div>
+                <div class="col-7 col-md-8 ps-2 pe-0">
+                    <textarea name="rest-description" class="form-control" rows="3" maxlength="2048">{{rest.profile.description}}</textarea>
+                </div>
+            </div>
+            <div class="row mx-sm-1 text-center">
+                <span class="p-0"><button type="submit" class="btn btn-success">Save</button></span>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    const restCategory = document.getElementById("rest-category");
+    restCategory.value = "{{rest.category.name}}";
+</script>
