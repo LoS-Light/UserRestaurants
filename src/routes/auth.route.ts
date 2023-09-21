@@ -17,7 +17,7 @@ AuthRoute.get("/register", checkAuth, asyncCatch(AuthController.getPageRegister)
 // ----------------------------------------------------------------------
 
 // Api
-AuthRoute.post("/register", asyncCatch(AuthController.postRegister.bind(this)));
+AuthRoute.post("/register", asyncCatch(AuthController.postRegister));
 AuthRoute.post("/logout", asyncCatch(AuthController.postLogout));
 
 AuthRoute.post("/login/local", passportAuthCallback("local", AuthController.postLoginLocal));
