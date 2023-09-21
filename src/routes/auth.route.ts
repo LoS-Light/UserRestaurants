@@ -54,7 +54,7 @@ AuthRoute.post("/login/local", passportAuthCallback("local", async (isSuccess, r
 }));
 
 AuthRoute.get("/login/facebook", passport.authenticate("facebook", { scope: OAuth2FacebookConfig.scope }));
-AuthRoute.get("/oauth2/facebook/callback", passportAuthCallback("facebook", (isSuccess, req, res) => {
+AuthRoute.get("/oauth2/facebook/callback", passportAuthCallback("facebook", async (isSuccess, req, res) => {
     if (!isSuccess) req.flash("error", "Facebook login failed.");
 
     const redirect = isSuccess ? "/" : "/login";
@@ -67,7 +67,7 @@ AuthRoute.get("/oauth2/facebook/callback", passportAuthCallback("facebook", (isS
 }));
 
 AuthRoute.get("/login/google", passport.authenticate("google", { scope: OAuth2GoogleConfig.scope }));
-AuthRoute.get("/oauth2/google/callback", passportAuthCallback("google", (isSuccess, req, res) => {
+AuthRoute.get("/oauth2/google/callback", passportAuthCallback("google", async (isSuccess, req, res) => {
     if (!isSuccess) req.flash("error", "Google login failed.");
 
     const redirect = isSuccess ? "/" : "/login";
