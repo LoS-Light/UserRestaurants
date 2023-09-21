@@ -5,10 +5,10 @@
 ## Features
 
 -   Sign up
--   Login by username&password or oauth2
+-   Login by (username & password) or oauth2
 -   Display restaurants on multiple pages
 -   Search restaurants by name or category
--   Order restaurants
+-   Reorder restaurants
 -   Flash messages
 -   Create a new restaurant
 -   Check restaurant information
